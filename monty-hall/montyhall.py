@@ -1,3 +1,4 @@
+import sys
 import random
 import numpy as np 
 import matplotlib.pyplot as plt
@@ -24,7 +25,16 @@ def monty_hall(strat: str, trials: int) -> float:
     return wins / trials
 
 if __name__ == "__main__":
-    trails = 100000
+    if len(sys.argv) < 2:
+        print("Usage: python3 montyhall.py <number_of_traisl>")
+        sys.exit(1)
+
+    try:
+        trails = int(sys.argv[1])
+    except ValueError:
+        print("<number_of_trails> must be an integer")
+        sys.exit(1)
+
     win_rate_stay = monty_hall("stay", trails)
     win_rate_switch = monty_hall("switch", trails)
 
