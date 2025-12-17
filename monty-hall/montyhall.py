@@ -3,7 +3,7 @@ import random
 import numpy as np 
 import matplotlib.pyplot as plt
 
-def monty_hall(strat: str, trials: int) -> float:
+def monty_hall(strat, trials):
     wins = 0 
     for _ in range(trials):
         doors = [0, 1, 2]
