@@ -1,4 +1,4 @@
-import random, math
+import random, math, time
 
 def sample_points_square(num_points):
     points = []
@@ -16,6 +16,10 @@ def total_in_circle(points):
         if l2_distance <= 0.5: total_in_circle += 1
     return total_in_circle
 
+start_time = time.perf_counter()
+time.sleep(1)
+
+# ------------------------------------------------------
 num_points = 10_000_000
 points_in_square = sample_points_square(num_points)
 num_points_circle = total_in_circle(points_in_square)
@@ -23,4 +27,8 @@ num_points_circle = total_in_circle(points_in_square)
 # (num_points_circle) / (num_points) roughly pi / 4
 pi_approx = 4 * (num_points_circle / num_points)
 print(pi_approx)
+# ------------------------------------------------------
 
+end_time = time.perf_counter()
+execution_time = end_time - start_time
+print(f"total time: {execution_time:.6f}s")
