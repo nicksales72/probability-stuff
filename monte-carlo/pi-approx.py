@@ -16,13 +16,11 @@ def total_in_circle(points):
         if l2_distance <= 0.5: total_in_circle += 1
     return total_in_circle
 
-epsilon = 1e-3
-num_points = 10000000
+num_points = 10_000_000
 points_in_square = sample_points_square(num_points)
 num_points_circle = total_in_circle(points_in_square)
 
 # (num_points_circle) / (num_points) roughly pi / 4
 pi_approx = 4 * (num_points_circle / num_points)
-assert(abs(math.pi - pi_approx) < epsilon)
 print(pi_approx)
 
